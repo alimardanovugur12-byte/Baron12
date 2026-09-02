@@ -1,4 +1,5 @@
 [app]
+log_level = 1
 title = My Application
 package.name = myapp
 package.domain = org.test
