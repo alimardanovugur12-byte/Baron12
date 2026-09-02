@@ -52,3 +52,4 @@ jobs:
       with:
         name: package
         path: bin/*.apk
+        if-no-files-found: ignore
