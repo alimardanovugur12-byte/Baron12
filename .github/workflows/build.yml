@@ -3,10 +3,12 @@ name: CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
@@ -24,27 +26,11 @@ jobs:
           build-essential \
           git \
           python3-dev \
-          ffmpeg \
-          libsdl2-dev \
-          libsdl2-image-dev \
-          libsdl2-mixer-dev \
-          libsdl2-ttf-dev \
-          libportmidi-dev \
-          libswscale-dev \
-          libavformat-dev \
-          libavcodec-dev \
-          zlib1g-dev \
-          libgstreamer1.0-dev \
-          gstreamer1.0-plugins-bad \
-          gstreamer1.0-plugins-base \
-          gstreamer1.0-plugins-good \
-          autoconf \
-          libtool \
-          libtool-bin \
-          autopoint \
-          pkg-config \
+          libltdl-dev \
           libffi-dev \
-          libssl-dev
+          libssl-dev \
+          libtool-bin \
+          autopoint
 
     - name: Install Buildozer and Cython
       run: |
@@ -59,9 +45,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildozer-
 
-    
     - name: Build with Buildozer
-     run: buildozer -v android debug
+      run: buildozer -v android debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
