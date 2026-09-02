@@ -59,9 +59,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-buildozer-
 
-    - name: Fix Autoconf Macro Error
-        run: |
-          find . -name "configure.ac" -exec sed -i 's/LT_SYS_SYMBOL_USCORE//g' {} +
+    
     - name: Build with Buildozer
      run: buildozer -v android debug
 
