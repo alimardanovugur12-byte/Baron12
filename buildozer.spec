@@ -2,6 +2,7 @@
 title = My Application
 package.name = myapp
 package.domain = org.test
+source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 source.include_dir = 
 version = 0.1
