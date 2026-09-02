@@ -40,6 +40,8 @@ jobs:
           gstreamer1.0-plugins-good \
           autoconf \
           libtool \
+          libtool-bin \
+          autopoint \
           pkg-config \
           libffi-dev \
           libssl-dev
